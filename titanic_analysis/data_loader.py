@@ -10,4 +10,21 @@ def load_titanic_data(filepath: str) -> pd.DataFrame:
     Returns:
         pd.DataFrame: Loaded Titanic dataset as a DataFrame.
     """
-    pass  # Implement the loading logic here
+    try:
+        df = pd.read_csv("DS-ICE-4006/titanic.csv")
+        return df
+    except FileNotFoundError:
+        print(f"Error: The file at {filepath} was not found.")
+        return pd.DataFrame()  # Return an empty DataFrame if the file is not found
+    except pd.errors.EmptyDataError:
+        print("Error: The file is empty.")
+        return pd.DataFrame()  # Return an empty DataFrame if the file is empty
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return pd.DataFrame()  # Return an empty DataFrame for any other exceptions
+    pass
+
+# Example usage:
+# df = load_titanic_data('path/to/titanic.csv')
+# print(df.head())
+
