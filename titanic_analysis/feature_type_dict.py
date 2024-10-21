@@ -36,3 +36,4 @@ def create_feature_type_dict(df: pd.DataFrame) -> dict:
     feature_types['categorical']['ordinal'].extend(ordinal_features)
 
     return feature_types
+
