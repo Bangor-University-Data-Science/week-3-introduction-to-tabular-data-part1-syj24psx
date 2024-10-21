@@ -16,10 +16,3 @@ def get_numerical_df(df: pd.DataFrame, numerical_features: list) -> pd.DataFrame
     
     return numerical_df
     pass
-
-# Example usage:
-# df = load_titanic_data('path/to/titanic.csv')
-# numerical_features = ['Age', 'Fare', 'SibSp', 'Parch']  # Example numerical features
-# numerical_df = get_numerical_df(df, numerical_features)
-# print(numerical_df.head())
-
