@@ -24,15 +24,15 @@ def create_feature_type_dict(df: pd.DataFrame) -> dict:
     # Iterate through DataFrame columns
     for column in df.columns:
         if pd.api.types.is_numeric_dtype(df[column]):
-            if column in ['Age', 'Fare'] or len(df[column].unique()) > 20:  # Treat Age and Fare as continuous
+            if len(df[column].unique()) > 20:  # Heuristic for continuous
                 feature_types['numerical']['continuous'].append(column)
-            else:
+            else:  # Heuristic for discrete
                 feature_types['numerical']['discrete'].append(column)
-        elif pd.api.types.is_categorical_dtype(df[column]) or df[column].dtype == 'object':
+        elif isinstance(df[column].dtype, pd.CategoricalDtype) or df[column].dtype == 'object':
             feature_types['categorical']['nominal'].append(column)
 
     # Add ordinal features based on domain knowledge
-    ordinal_features = ['Pclass']
+    ordinal_features = ['Pclass']  # Adjust as needed
     feature_types['categorical']['ordinal'].extend(ordinal_features)
 
     return feature_types
