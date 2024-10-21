@@ -3,8 +3,8 @@ import os
 from titanic_analysis.data_loader import load_titanic_data
 
 def test_load_titanic_data_valid():
-    # Assuming the path is correct for the test
-    df = load_titanic_data("../../data/titanic.csv")
+    # Use an absolute path or ensure the relative path is correct
+    df = load_titanic_data("D:/DataScience_W3/week-3-introduction-to-tabular-data-part1-syj24psx/data/titanic.csv")
     assert isinstance(df, pd.DataFrame), "The returned object should be a DataFrame"
     assert not df.empty, "The DataFrame should not be empty"
 
