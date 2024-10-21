@@ -1,5 +1,5 @@
-from titanic_analysis.summary_table import create_summary_table
 import pandas as pd
+from titanic_analysis.summary_table import create_summary_table
 
 def test_create_summary_table():
     # Mock a DataFrame
@@ -13,5 +13,5 @@ def test_create_summary_table():
     
     assert 'Feature Name' in summary_df.columns, f"Summary should include 'Feature Name'. Found columns: {summary_df.columns.tolist()}"
     assert 'Data Type' in summary_df.columns, f"Summary should include 'Data Type'. Found columns: {summary_df.columns.tolist()}"
-    assert 'Has Missing Values?' in summary_df.columns, f"Summary should include 'Has Missing Values?'. Found columns: {summary_df.columns.tolist()}"
+    assert 'Has Missing Values' in summary_df.columns, f"Summary should include 'Has Missing Values'. Found columns: {summary_df.columns.tolist()}"
     assert 'Number of Unique Values' in summary_df.columns, f"Summary should include 'Number of Unique Values'. Found columns: {summary_df.columns.tolist()}"
