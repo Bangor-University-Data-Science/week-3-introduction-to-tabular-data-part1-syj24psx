@@ -20,8 +20,3 @@ def create_summary_table(df: pd.DataFrame) -> pd.DataFrame:
     
     return summary
     pass
-
-# Example usage:
-# df = load_titanic_data('path/to/titanic.csv')
-# summary_table = create_summary_table(df)
-# print(summary_table)
