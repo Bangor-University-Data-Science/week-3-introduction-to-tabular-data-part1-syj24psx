@@ -29,7 +29,6 @@ def create_feature_type_dict(df: pd.DataFrame) -> dict:
             else:  # Heuristic for discrete
                 feature_types['numerical']['discrete'].append(column)
         elif pd.api.types.is_categorical_dtype(df[column]) or df[column].dtype == 'object':
-            # Assume nominal if no order is defined; adjust based on your dataset
             feature_types['categorical']['nominal'].append(column)
 
     # Example of adding ordinal features based on domain knowledge
@@ -37,10 +36,3 @@ def create_feature_type_dict(df: pd.DataFrame) -> dict:
     feature_types['categorical']['ordinal'].extend(ordinal_features)
 
     return feature_types
-    pass
-
-# Example usage:
-# df = load_titanic_data('path/to/titanic.csv')
-# feature_types = create_feature_type_dict(df)
-# print(feature_types)
-
