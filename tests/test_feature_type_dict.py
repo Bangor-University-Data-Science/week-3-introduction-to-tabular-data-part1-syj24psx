@@ -1,5 +1,5 @@
 import pandas as pd
-from titanic_analysis.feature_classifier import create_feature_type_dict
+from titanic_analysis.feature_type_dict import create_feature_type_dict
 
 def test_create_feature_type_dict():
     # Mock a DataFrame
