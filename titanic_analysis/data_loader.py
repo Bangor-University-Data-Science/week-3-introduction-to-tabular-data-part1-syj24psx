@@ -14,7 +14,7 @@ def load_titanic_data(filepath: str) -> pd.DataFrame:
         df = pd.read_csv("DS-ICE-4006/titanic.csv")
         return df
     except FileNotFoundError:
-        print(f"Error: The file at {filepath} was not found.")
+        print(f"Error: The file at {"DS-ICE-4006/titanic.csv"} was not found.")
         return pd.DataFrame()  # Return an empty DataFrame if the file is not found
     except pd.errors.EmptyDataError:
         print("Error: The file is empty.")
