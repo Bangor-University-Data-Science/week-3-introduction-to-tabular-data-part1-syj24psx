@@ -24,10 +24,11 @@ def create_feature_type_dict(df: pd.DataFrame) -> dict:
     # Iterate through DataFrame columns
     for column in df.columns:
         if pd.api.types.is_numeric_dtype(df[column]):
-            if len(df[column].unique()) > 20:  # Heuristic for continuous
-                feature_types['numerical']['continuous'].append(column)
-            else:  # Heuristic for discrete
+            # Adjust the condition for classification
+            if len(df[column].unique()) <= 20:  # Heuristic for discrete
                 feature_types['numerical']['discrete'].append(column)
+            else:  # Heuristic for continuous
+                feature_types['numerical']['continuous'].append(column)
         elif pd.api.types.is_categorical_dtype(df[column]) or df[column].dtype == 'object':
             feature_types['categorical']['nominal'].append(column)
 
@@ -36,4 +37,3 @@ def create_feature_type_dict(df: pd.DataFrame) -> dict:
     feature_types['categorical']['ordinal'].extend(ordinal_features)
 
     return feature_types
-
